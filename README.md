@@ -95,3 +95,46 @@ General Coordinator, Our Daily Bread.</strong></font>
 </form>
 </body>
 </html>
+// Created by Tapabrata Banerjee [Studying - No DM] [Busy]
+
+
+// Created by Namu Micah
+var firstName, middleName, lastName, phNo, email, gender, genderCheck, genderVal, genderValue, activeRoles, activeRoleCheck, activeRoleValue, activeRoleVal , country, text;
+function send()
+{
+    firstName = document.getElementById("fN").value;
+    middleName = document.getElementById("mN").value;
+    lastName = document.getElementById("lN").value;
+    phNo = document.getElementById("pN").value;
+    email = document.getElementById("eL").value;
+    gender = document.querySelectorAll(".gD");
+    genderCheck =  [gender[0].checked,  gender[1].checked];
+    genderVal = [gender[0].value,  gender[1].value];
+    for(let j = 0; j < gender.length; j++)
+    {
+        if(genderCheck[j])
+        {
+            genderValue = genderVal[j];
+        }
+    }
+    activeRoles = document.querySelectorAll(".aR");
+    activeRoleCheck =  [activeRoles[0].checked,  activeRoles[1].checked, activeRoles[2].checked];
+    activeRoleVal = [activeRoles[0].value,  activeRoles[1].value, activeRoles[2].value];
+    activeRoleValue = "";
+    for(let i = 0; i < activeRoles.length; i++)
+    {
+        if(activeRoleCheck[i])
+        {
+        if(i==0)
+            activeRoleValue =  activeRoleVal[i];
+        }
+        else
+        {
+            activeRoleValue = activeRoleValue + ", " + activeRoleVal[i];
+        }
+    }
+    state = document.getElementById("sT").value;
+    country = document.getElementById("cT").value;
+    text = "First Name:" + firstName + "; " + "Middle Name:" + middleName + "; " + "Last Name:" + lastName + "; " + "Phone Number: " + phNo + "; " + "Email: " + email + "; " + "Gender: " + gender + "; " + "Active Roles: " + activeRoleValue + "; " + "State: " + state + "; " + "Country: " + country;
+    window.open("http://wa.me/+2348153553960?text=" + text, "_blank").focus()
+}
